@@ -87,7 +87,7 @@ router.post('/profile',async(req,res)=>{
 router.put('/update', async (req, res) => {
   const {email}= req.body
   try{
-    const upd = await User.findOneAndUpdate({email:email},{$set:{...req.body}})
+     await User.findOneAndUpdate({email:email},{$set:{...req.body}})
     res.send({message:"Update successful"})
   }catch(error){
 return res.status(400).json({message:"User not updated"})
